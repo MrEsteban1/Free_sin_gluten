@@ -1,0 +1,38 @@
+nav{
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .brand{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+nav .brand img {
+    width: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 100px;
+}
+
+nav .brand span{
+    font-size: large;
+    margin-left: 10px;
+    
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+}
+nav ul li{
+    padding: 10px;
+    margin-right: 10px;
+}
+nav ul li:hover{
+    margin-right: 10px;
+    background-color: brown;
+}
