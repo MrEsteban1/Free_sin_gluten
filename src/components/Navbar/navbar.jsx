@@ -11,6 +11,7 @@ const Navbar = () => {
                 <li>Home</li>
                 <li>Productos</li>
                 <li>Nosotros</li>
+                <li><img src="assets/chart.png" alt="" /></li>
             </ul>
         </nav>
     )
