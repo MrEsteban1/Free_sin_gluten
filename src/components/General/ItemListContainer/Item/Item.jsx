@@ -1,16 +1,11 @@
 import React, { useState } from "react";
+import { useCounter } from "../../../CustomHooks/useCounter";
 import "./style.css";
 
 const Item = ({ title, image, detail, stock }) => {
   const [selectedItems, setSelected] = useState(0);
 
-  const increment = () => {
-    if (selectedItems < stock) setSelected(selectedItems + 1);
-  };
-
-  const decrement = () => {
-    if (selectedItems !== 0) setSelected(selectedItems - 1);
-  };
+  const { counter, increment, decrement } = useCounter(0, stock);
 
   return (
     <div className="itemScreen">
@@ -18,7 +13,7 @@ const Item = ({ title, image, detail, stock }) => {
       <img src={image} alt="" />
       <span>{detail}</span>
       <div className="number_items">
-        {selectedItems}/{stock}
+        {counter}/{stock}
       </div>
       <div>
         <button
