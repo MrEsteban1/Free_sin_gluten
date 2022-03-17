@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { getRandomData } from "../../../services/spoonacularAPI";
 import ItemList from "./ItemList/ItemList";
 import "./style.css";
 
-const ItemListContainer = ({ title, image, detail, stock }) => {
+const ItemListContainer = () => {
+  //getRandomData("pasta");
   return (
     <div>
       <ItemList />
