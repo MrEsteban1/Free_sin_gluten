@@ -1,0 +1,34 @@
+.item-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.item-container-button-0 {
+  background: red;
+  margin: 10px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100px;
+}
+.item-container-button-0:hover {
+  background: rgb(182, 107, 107);
+}
+.item-container-button-1 {
+  background: blue;
+  margin: 10px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100px;
+}
+.item-container-button-1:hover {
+  background: rgb(81, 63, 124);
+}
+.item-detail-list-item {
+  list-style: none;
+}

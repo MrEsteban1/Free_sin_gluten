@@ -1,0 +1,12 @@
+.item_detail {
+  background-color: rgb(235, 204, 196);
+  padding: 50px;
+  border-radius: 13px;
+  width: 50%;
+  box-shadow: rgb(143, 123, 118) 10px 20px 20px;
+}
+
+.item-detail-image {
+  width: 50%;
+  height: 50%;
+}

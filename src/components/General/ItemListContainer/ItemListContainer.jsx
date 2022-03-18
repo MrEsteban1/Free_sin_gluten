@@ -4,7 +4,7 @@ import ItemList from "./ItemList/ItemList";
 import "./style.css";
 
 const ItemListContainer = () => {
-  //getRandomData("pasta");
+  getRandomData("pasta");
   return (
     <div>
       <ItemList />
