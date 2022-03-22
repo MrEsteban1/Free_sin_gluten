@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-import { getRandomData } from "../../../services/spoonacularAPI";
+import React from "react";
 import ItemList from "./ItemList/ItemList";
 import "./style.css";
 
 const ItemListContainer = () => {
-  getRandomData("pasta");
   return (
     <div>
       <ItemList />

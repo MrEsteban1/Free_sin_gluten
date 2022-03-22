@@ -3,13 +3,18 @@ import Navbar from "./components/Navbar/navbar";
 import "./App.css";
 import ItemListContainer from "./components/General/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/General/ItemDetailContainer/itemDetailContainer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      {/* <ItemListContainer /> */}
-      <ItemDetailContainer />
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/:idItem" element={<ItemListContainer />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

@@ -2,19 +2,17 @@ import React, { useState } from "react";
 import { useCounter } from "../../../CustomHooks/useCounter";
 import "./style.css";
 
-const Item = ({ title, image, detail, stock }) => {
+const Item = ({ title, image, price }) => {
   const [selectedItems, setSelected] = useState(0);
 
-  const { counter, increment, decrement } = useCounter(0, stock);
+  const { counter, increment, decrement } = useCounter(0);
 
   return (
     <div className="itemScreen">
       <h3>{title}</h3>
       <img src={image} alt="" />
       <span>{detail}</span>
-      <div className="number_items">
-        {counter}/{stock}
-      </div>
+      <div className="number_items">{counter}</div>
       <div>
         <button
           onClick={() => {
