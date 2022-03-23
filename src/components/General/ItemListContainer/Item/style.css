@@ -1,7 +1,7 @@
 .itemScreen {
   background-color: rgb(238, 175, 175);
-  height: 290px;
-  width: 230px;
+  height: 390px;
+  width: 330px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,8 +12,9 @@
   width: 50%;
   height: 50%;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
-.itemScreen button {
+.button-counter {
   margin: 13px 5px;
   padding: 5px 25px;
   background-color: brown;
@@ -21,7 +22,7 @@
   border-radius: 3.5px;
   color: aliceblue;
 }
-.itemScreen button:hover {
+.button-counter:hover {
   background-color: rgb(124, 30, 30);
   color: rgb(175, 181, 187);
 }
@@ -30,4 +31,15 @@
   width: 35%;
   margin-top: 12px;
   border-radius: 6px;
+}
+.button-detalle {
+  background-color: rgb(93, 102, 189);
+  border: none;
+  border-radius: 3.5px;
+  padding: 5px 25px;
+  margin: 12px;
+  color: rgb(255, 255, 255);
+}
+.button-detalle:hover {
+  background-color: rgb(75, 84, 158);
 }

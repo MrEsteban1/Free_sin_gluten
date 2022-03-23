@@ -25,9 +25,16 @@ export const getRandomData = async (limit = 10) => {
   return new Promise((resolve, reject) => {
     let data = localStorage.getItem("recipes") || null;
     if (!!data) {
-      resolve(JSON.parse(data));
+      setTimeout(() => resolve(JSON.parse(data)), 2000);
     } else {
-      resolve(apiRandomData());
+      setTimeout(() => resolve(apiRandomData()), 2000);
     }
+  });
+};
+
+export const getRecipeById = (id) => {
+  return new Promise((resolve, reject) => {
+    let data = JSON.parse(localStorage.getItem("recipes")) || [];
+    resolve(data.recipes.find((e) => (e.id = id)));
   });
 };

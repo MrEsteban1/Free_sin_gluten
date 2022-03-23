@@ -10,3 +10,19 @@
   width: 50%;
   height: 50%;
 }
+.item-detail-backButton button {
+  border: none;
+  background-color: rgb(168, 53, 24);
+  width: 10%;
+  height: 4%;
+  margin-top: -5px;
+  border-radius: 3.5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+.item-detail-backButton button:hover {
+  background-color: rgb(126, 40, 18);
+}

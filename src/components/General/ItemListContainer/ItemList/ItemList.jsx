@@ -19,10 +19,11 @@ const ItemList = () => {
       ) : (
         recipes.map((product) => (
           <Item
-            key={product.key}
+            key={product.id}
+            id={product.id}
             title={product.title}
             image={product.image}
-            detail={product.detail}
+            price={product.pricePerServing}
           />
         ))
       )}
