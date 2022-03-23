@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Counter from "../../ItemListContainer/counter/counter";
 import "./style.css";
 
 const ItemDetail = ({ data }) => {
@@ -28,6 +29,7 @@ const ItemDetail = ({ data }) => {
             <b>Precio:</b> {price}
           </li>
         </ul>
+        <Counter />
       </div>
     </div>
   );

@@ -1,51 +1,53 @@
-nav{
-    background-color: rgb(199, 84, 84);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+nav {
+  background-color: rgb(199, 84, 84);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-nav .brand{
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
+nav .brand {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
 }
 
 nav .brand img {
-    width: 85px;
-    border-radius: 50%;
-    overflow: hidden;
-    height: 85px;
+  width: 85px;
+  border-radius: 50%;
+  overflow: hidden;
+  height: 85px;
 }
 
-nav .brand span{
-    font-size: large;
-    margin-left: 10px;
-    
+nav .brand span {
+  font-size: large;
+  margin-left: 10px;
 }
 
-nav ul{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    height: 100%;
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  height: 100%;
 }
-nav ul img{
-    height: 50px;
-    border-radius: 30px;
-    overflow: hidden;
+nav ul img {
+  height: 50px;
+  border-radius: 30px;
+  overflow: hidden;
 }
-nav ul img:hover{
-    padding: 2px;
-    border: solid rgb(248, 245, 245) 3px;
-    margin: -5px;
+nav ul img:hover {
+  padding: 2px;
+  border: solid rgb(248, 245, 245) 3px;
+  margin: -5px;
 }
-nav ul li{
-    padding: 10px;
-    margin-right: 10px;
+nav ul li {
+  padding: 10px;
+  margin-right: 10px;
 }
-nav ul li:hover{
-    margin-right: 10px;
-    color: rgb(255, 255, 255);
+nav ul li:hover {
+  margin-right: 10px;
+  color: rgb(255, 255, 255);
+}
+.nav-link {
+  text-decoration: none;
 }
