@@ -13,7 +13,7 @@ const apiRandomData = (limit = 10) => {
     .get(endPointString)
     .then((res) => {
       console.log(res.data);
-      localStorage.setItem("recipes", JSON.stringify(res.data));
+      sessionStorage.setItem("recipes", JSON.stringify(res.data));
       return JSON.parse(res.data);
     })
     .catch((err) => {
@@ -23,7 +23,7 @@ const apiRandomData = (limit = 10) => {
 
 export const getRandomData = async (limit = 10) => {
   return new Promise((resolve, reject) => {
-    let data = localStorage.getItem("recipes") || null;
+    let data = sessionStorage.getItem("recipes") || null;
     if (!!data) {
       setTimeout(() => resolve(JSON.parse(data)), 2000);
     } else {
@@ -34,7 +34,7 @@ export const getRandomData = async (limit = 10) => {
 
 export const getRecipeById = (id) => {
   return new Promise((resolve, reject) => {
-    let data = JSON.parse(localStorage.getItem("recipes")) || [];
+    let data = JSON.parse(sessionStorage.getItem("recipes")) || [];
     resolve(data.recipes.find((e) => (e.id = id)));
   });
 };

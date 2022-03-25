@@ -1,8 +1,8 @@
 import React from "react";
 import { useCounter } from "../../../CustomHooks/useCounter";
 
-const Counter = () => {
-  const { counter, increment, decrement } = useCounter(0);
+const Counter = ({counter,increment,decrement,handlerAdd}) => {
+  //const { counter, increment, decrement } = useCounter(0);
   return (
     <>
       <div className="number_items">{counter}</div>
@@ -24,6 +24,7 @@ const Counter = () => {
           +
         </button>
       </div>
+      <button className="button-addItem" onClick={handlerAdd}>Agregar</button>
     </>
   );
 };

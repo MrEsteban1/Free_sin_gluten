@@ -26,6 +26,16 @@
   background-color: rgb(124, 30, 30);
   color: rgb(175, 181, 187);
 }
+.button-addItem{
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(73, 66, 180);
+  padding: 5px 10px;
+  color: white;
+}
+.button-addItem{
+    background-color: rgb(60, 54, 141);
+}
 .itemScreen .number_items {
   background-color: rgb(255, 255, 255);
   width: 35%;

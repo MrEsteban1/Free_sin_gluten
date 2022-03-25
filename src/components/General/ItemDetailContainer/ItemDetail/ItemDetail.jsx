@@ -1,10 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useCounter } from "../../../CustomHooks/useCounter";
 import Counter from "../../ItemListContainer/counter/counter";
 import "./style.css";
 
 const ItemDetail = ({ data }) => {
   const { id, title, servings: calories, image, pricePerServing: price } = data;
+  const { counter, increment, decrement } = useCounter(0)
+  const handlerAdd = () => {
+    const itemToCart = {
+      id,
+      title,
+      price,
+      cantidad: counter
+        }
+
+  console.log(itemToCart)
+  }
 
   useEffect(() => {}, []);
 
@@ -29,7 +41,7 @@ const ItemDetail = ({ data }) => {
             <b>Precio:</b> {price}
           </li>
         </ul>
-        <Counter />
+        <Counter counter={counter} increment={increment} decrement={decrement} handlerAdd={handlerAdd} />
       </div>
     </div>
   );

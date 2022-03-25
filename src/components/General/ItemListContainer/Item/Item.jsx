@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCounter } from "../../../CustomHooks/useCounter";
 import Counter from "../counter/counter";
 import "./style.css";
 
@@ -18,7 +17,7 @@ const Item = ({ id, title, image, price }) => {
         <b>Precio:</b> ${price}
       </span>
 
-      <Counter />
+      {/* <Counter /> */}
       <Link to={`/recipe/${id}`}>
         <button className="button-detalle">Detalle</button>
       </Link>
