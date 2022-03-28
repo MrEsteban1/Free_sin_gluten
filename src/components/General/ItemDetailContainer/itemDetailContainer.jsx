@@ -18,6 +18,7 @@ const ItemDetailContainer = () => {
     setData({ data: {}, loading: true });
     getItem(idItem);
   }, []);
+  
   console.log(data.data);
   return (
     <div className="item-container">

@@ -34,7 +34,8 @@ export const getRandomData = async (limit = 10) => {
 
 export const getRecipeById = (id) => {
   return new Promise((resolve, reject) => {
-    let data = JSON.parse(sessionStorage.getItem("recipes")) || [];
-    resolve(data.recipes.find((e) => (e.id = id)));
+    let dataArray = JSON.parse(sessionStorage.getItem("recipes")) || [];
+    let data = dataArray.recipes.filter((e) => (e.id == id)) 
+    resolve(data[0]);
   });
 };

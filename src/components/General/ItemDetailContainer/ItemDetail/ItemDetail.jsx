@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { ChartContext } from "../../../../contexts/chartContext";
 import { useCounter } from "../../../CustomHooks/useCounter";
 import Counter from "../../ItemListContainer/counter/counter";
 import "./style.css";
@@ -7,15 +8,17 @@ import "./style.css";
 const ItemDetail = ({ data }) => {
   const { id, title, servings: calories, image, pricePerServing: price } = data;
   const { counter, increment, decrement } = useCounter(0)
+  const [chart, setChart] = useContext(ChartContext)
   const handlerAdd = () => {
     const itemToCart = {
       id,
       title,
-      price,
+      image,
+      price: price*counter,
       cantidad: counter
-        }
+    }
 
-  console.log(itemToCart)
+    setChart([...chart,itemToCart])
   }
 
   useEffect(() => {}, []);
