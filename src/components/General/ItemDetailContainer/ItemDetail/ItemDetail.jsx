@@ -9,7 +9,7 @@ const ItemDetail = ({ data }) => {
   const { id, title, servings: calories, image, pricePerServing: price } = data;
   const { counter, increment, decrement } = useCounter(0)
   const [chart, setChart] = useContext(ChartContext)
-  const handlerAdd = () => {
+  const handlerAdd = async () => {
     const itemToCart = {
       id,
       title,
@@ -17,8 +17,22 @@ const ItemDetail = ({ data }) => {
       price: price*counter,
       cantidad: counter
     }
+    let arrayAux = []
+    let index = await chart.findIndex(product=>
+        product.id === id
+    )
+    console.log("index",index)
+    
+    index !== -1 ?
+    (arrayAux = [...chart,itemToCart]) : arrayAux = [ await(chart.map( product => product.id === id && (product.price = product.price + itemToCart.price)))]
 
-    setChart([...chart,itemToCart])
+    setChart([...arrayAux])
+    console.log("chart", chart)
+    
+  }
+
+  const validateProduct = (item, chart) => {
+      
   }
 
   useEffect(() => {}, []);
