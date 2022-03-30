@@ -19,7 +19,10 @@ function App() {
             <Route path="/" element={<ItemListContainer />} />
             <Route path="/products" element={<ItemListContainer />} />
             <Route path="/recipe/:idItem" element={<ItemDetailContainer />} />
-            <Route path="/chart"  element={<Chart products={chart} />} />
+            <Route
+              path="/chart"
+              element={<Chart products={chart} setChart={setChart} />}
+            />
           </Routes>
         </BrowserRouter>
       </ChartContext.Provider>

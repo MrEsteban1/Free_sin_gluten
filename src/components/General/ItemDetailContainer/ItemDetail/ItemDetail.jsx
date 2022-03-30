@@ -7,33 +7,35 @@ import "./style.css";
 
 const ItemDetail = ({ data }) => {
   const { id, title, servings: calories, image, pricePerServing: price } = data;
-  const { counter, increment, decrement } = useCounter(0)
-  const [chart, setChart] = useContext(ChartContext)
+  const { counter, increment, decrement } = useCounter(0);
+  const [chart, setChart] = useContext(ChartContext);
+
   const handlerAdd = async () => {
     const itemToCart = {
       id,
       title,
       image,
-      price: price*counter,
-      cantidad: counter
-    }
-    let arrayAux = []
-    let index = await chart.findIndex(product=>
+      price: price * counter,
+      cantidad: counter,
+    };
+    let arrayAux;
+    let index = await chart.findIndex((product) => product.id === id);
+    console.log("index", index);
+
+    if (index === -1) arrayAux = [...chart, itemToCart];
+    else
+      arrayAux = await chart.map((product) =>
         product.id === id
-    )
-    console.log("index",index)
-    
-    index !== -1 ?
-    (arrayAux = [...chart,itemToCart]) : arrayAux = [ await(chart.map( product => product.id === id && (product.price = product.price + itemToCart.price)))]
+          ? {
+              ...product,
+              price: product.price + itemToCart.price,
+            }
+          : { ...product }
+      );
 
-    setChart([...arrayAux])
-    console.log("chart", chart)
-    
-  }
-
-  const validateProduct = (item, chart) => {
-      
-  }
+    console.log("chart", arrayAux);
+    setChart([...arrayAux]);
+  };
 
   useEffect(() => {}, []);
 
@@ -58,7 +60,12 @@ const ItemDetail = ({ data }) => {
             <b>Precio:</b> {price}
           </li>
         </ul>
-        <Counter counter={counter} increment={increment} decrement={decrement} handlerAdd={handlerAdd} />
+        <Counter
+          counter={counter}
+          increment={increment}
+          decrement={decrement}
+          handlerAdd={handlerAdd}
+        />
       </div>
     </div>
   );
