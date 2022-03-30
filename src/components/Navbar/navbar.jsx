@@ -39,7 +39,7 @@ const Navbar = () => {
             {chart.length > 0 ? chart.map((e,i)=>{
               return <li key={e.id}>{i+1}. {e.title.slice(0,20)}{(e.title.length > 20) ? "..." : ""}  <button onClick={() => handleDeleteItem(e.id) }  className="nav-item-list-deleteItem">Borrar</button> </li>
             }): <li key={101}>No hay elementos en el carrito</li>} 
-            <li style={{border:"none"}}> <Link to={'/chart'} className="nav-item-list-buttonBuy" >Ir al carrito</Link></li> 
+            <li style={{border:"none"}}> <Link to={'/chart'} className="nav-item-list-buttonBuy" >Ir al carrito</Link></li>
           </ul>
         </li>
       </ul>
