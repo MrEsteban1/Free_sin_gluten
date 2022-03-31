@@ -52,11 +52,11 @@ nav ul img:hover {
 .nav-link {
   text-decoration: none;
 }
-.nav-button-chart{
+.nav-button-chart {
   border: none;
   background: none;
 }
-.nav-item-counter{
+.nav-item-counter {
   background-color: rgb(228, 228, 125);
   border: solid black;
   border-radius: 10%;
@@ -64,7 +64,7 @@ nav ul img:hover {
   margin-top: -15px;
   width: 20px;
 }
-.nav-item-list{
+.nav-item-list {
   border-radius: 3px;
   box-shadow: rgb(226, 194, 194) 10px 10px 20px;
   background-color: rgb(226, 194, 194);
@@ -72,23 +72,23 @@ nav ul img:hover {
   flex-wrap: nowrap;
   position: absolute;
   right: 0px;
-  height: 200px;
-  width: 18%;
+  height: 300px;
+  width: 25%;
   padding: 0px;
   margin: 0;
-  overflow-y  : scroll;
+  overflow-y: scroll;
   margin-right: 10px;
 }
-.nav-item-list li{
+.nav-item-list li {
   border-bottom: solid black 0.8px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 80%;
   padding: 5px 10px;
-  margin: 0px; 
- 
+  margin: 0px;
 }
-.nav-item-list-buttonBuy{
+.nav-item-list-buttonBuy {
   margin: 0;
   padding: 5px 10px;
   border: none;
@@ -96,19 +96,18 @@ nav ul img:hover {
   background-color: rgb(160, 76, 76);
   color: white;
 }
-.nav-item-list-buttonBuy:hover{
+.nav-item-list-buttonBuy:hover {
   background-color: rgb(131, 40, 40);
   color: rgb(187, 184, 184);
 }
-.nav-item-list-buttonBuy:hover{
+.nav-item-list-buttonBuy:hover {
   background-color: rgb(131, 40, 40);
   color: rgb(187, 184, 184);
 }
-.nav-item-list-deleteItem{
+.nav-item-list-deleteItem {
   border: none;
   border-radius: 3px;
   background-color: brown;
   color: white;
   padding: 5px 15px;
-
 }

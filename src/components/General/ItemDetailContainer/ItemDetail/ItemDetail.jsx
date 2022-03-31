@@ -29,6 +29,7 @@ const ItemDetail = ({ data }) => {
           ? {
               ...product,
               price: product.price + itemToCart.price,
+              cantidad: product.cantidad + itemToCart.cantidad,
             }
           : { ...product }
       );

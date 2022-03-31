@@ -31,6 +31,7 @@
   background-color: brown;
   color: white;
   padding: 10px 15px;
+  margin-left: 15px;
 }
 .chart-product-buttonEliminar:hover {
   background-color: rgb(124, 33, 33);
