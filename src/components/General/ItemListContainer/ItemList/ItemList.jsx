@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getRandomData } from "../../../../services/spoonacularAPI";
-import SearchBar from "../../SearchBar/SearchBar";
+import { getRandomData } from "../../../../services/firebase";
+
+//import SearchBar from "../../SearchBar/SearchBar";
 import Item from "../Item/Item";
 
 const ItemList = () => {
@@ -8,7 +9,19 @@ const ItemList = () => {
   const [recipes, setRecipe] = useState([]);
 
   useEffect(() => {
-    getRandomData("pasta").then((res) => {setRecipe([...res.recipes])});
+    const getDATA = async () => {
+      await getRandomData()
+        .then((data) => {
+          console.log(data);
+          setRecipe([...data]);
+        })
+        .catch((e) => console.error(e));
+    };
+
+    // getRandomData("pasta").then((res) => {
+    //   setRecipe([...res.recipes]);
+    // });
+    getDATA();
   }, []);
 
   console.log(recipes);
@@ -22,10 +35,10 @@ const ItemList = () => {
           <Item
             key={product.id}
             id={product.id}
-            title={product.title}
-            image={product.image}
-            price={product.pricePerServing}
-          />          
+            title={product.nombre}
+            image={product.imagen}
+            price={product.precio}
+          />
         ))
       )}
     </div>

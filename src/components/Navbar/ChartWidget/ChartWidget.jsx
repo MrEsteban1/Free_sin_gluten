@@ -6,6 +6,7 @@ const ChartWidget = ({ chart = [], handleDeleteItem }) => {
   const handleShowChart = () => {
     setShowChart(!showChart);
   };
+  console.log("CHART", chart);
 
   return (
     <li>
@@ -27,8 +28,8 @@ const ChartWidget = ({ chart = [], handleDeleteItem }) => {
             return (
               <li key={e.id}>
                 <h5>
-                  {i + 1}. {e.title.slice(0, 20)}
-                  {e.title.length > 20 ? "..." : ""}
+                  {i + 1}. {e.nombre.slice(0, 20)}
+                  {e.nombre.length > 20 ? "..." : ""}
                 </h5>
                 <span>x {e.cantidad}</span>
                 <button

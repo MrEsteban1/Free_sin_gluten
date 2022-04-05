@@ -14,12 +14,12 @@ const ChartList = () => {
         {chart.map((product) => (
           <li key={product.id}>
             <div className="chart-product-data">
-              <img src={product.image} alt="" /> <span>{product.title}</span>
+              <img src={product.imagen} alt="" /> <span>{product.nombre}</span>
             </div>
 
             <div className="chart-product-buttons">
               <span>
-                <strong> Precio</strong>: ${product.price}
+                <strong> Precio</strong>: ${product.precio}
               </span>
               <button
                 className="chart-product-buttonEliminar"

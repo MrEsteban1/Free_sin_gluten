@@ -6,16 +6,16 @@ import Counter from "../../ItemListContainer/counter/counter";
 import "./style.css";
 
 const ItemDetail = ({ data }) => {
-  const { id, title, servings: calories, image, pricePerServing: price } = data;
+  const { id, nombre, calorias, imagen, precio } = data;
   const { counter, increment, decrement } = useCounter(0);
   const [chart, setChart] = useContext(ChartContext);
 
   const handlerAdd = async () => {
     const itemToCart = {
       id,
-      title,
-      image,
-      price: price * counter,
+      nombre,
+      imagen,
+      precio: precio * counter,
       cantidad: counter,
     };
     let arrayAux;
@@ -28,7 +28,7 @@ const ItemDetail = ({ data }) => {
         product.id === id
           ? {
               ...product,
-              price: product.price + itemToCart.price,
+              price: product.precio + itemToCart.precio,
               cantidad: product.cantidad + itemToCart.cantidad,
             }
           : { ...product }
@@ -48,17 +48,17 @@ const ItemDetail = ({ data }) => {
         </Link>
       </div>
       <div className="item-detail-view">
-        <h2>{title}</h2>
+        <h2>{nombre}</h2>
         <h3 className="item-detail-id">ID: #{id}</h3>
-        <img className="item-detail-image" src={image} alt="" />
+        <img className="item-detail-image" src={imagen} alt="" />
       </div>
       <div className="item-detail-description">
         <ul>
           <li className="item-detail-list-item">
-            <b>Calorias:</b> {calories}
+            <b>Calorias:</b> {calorias}
           </li>
           <li className="item-detail-list-item">
-            <b>Precio:</b> {price}
+            <b>Precio:</b> {precio}
           </li>
         </ul>
         <Counter
