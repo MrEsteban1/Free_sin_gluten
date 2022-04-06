@@ -48,6 +48,7 @@ export const getDatabyID = (id) => {
   return new Promise(async (resolve, reject) => {
     const q = query(productosRef, where(documentId(), "==", id));
     const receta = await getDocs(q);
-    receta.console.log("RECETA: ", receta);
+    console.log("RECETA: ", {id: receta.docs[0].id, ...receta.docs[0].data()});
+    resolve({id:receta.docs[0].id, ...receta.docs[0].data()})
   });
 };

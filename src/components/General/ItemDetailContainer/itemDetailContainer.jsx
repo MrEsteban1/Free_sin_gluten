@@ -9,7 +9,7 @@ const ItemDetailContainer = () => {
   const [data, setData] = useState({ data: {}, loading: true });
   const { idItem } = useParams();
   const getItem = async (id) => {
-    await getRecipeById(id).then((res) =>
+    await getDatabyID(id).then((res) => 
       setData({ data: res, loading: false })
     );
   };
@@ -18,7 +18,6 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     setData({ data: {}, loading: true });
     getItem(idItem);
-    getDatabyID(idItem);
   }, []);
 
   return (

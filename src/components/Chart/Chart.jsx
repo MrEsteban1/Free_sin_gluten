@@ -2,19 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import utils from "../../utils";
+import { handleBuy, handleEmptyChart } from "../../utils/chartFuncions";
 import ChartList from "./ChartList/ChartList";
 import "./style.css";
 
 const Chart = ({ products, setChart }) => {
   const [total, setTotal] = useState(0);
-  const handleBuy = () => {
-    setChart([]);
-    Swal.fire("Muchas gracias por su compra");
-  };
-  const handleEmptyChart = () => {
-    setChart([]);
-    Swal.fire("Se borro el carrito");
-  };
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,13 +23,13 @@ const Chart = ({ products, setChart }) => {
       <ChartList />
       <h3>Precio total: ${total} </h3>
       <div>
-        <button className="chart-comprarButton" onClick={handleBuy}>
+        <button className="chart-comprarButton" onClick={()=>handleBuy(setChart)}>
           Comprar
         </button>
         <button
           className="chart-comprarBorrar"
           onClick={() => {
-            handleEmptyChart();
+            handleEmptyChart(setChart);
           }}
         >
           Vaciar Carrito
