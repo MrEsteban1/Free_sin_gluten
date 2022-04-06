@@ -46,8 +46,8 @@ export const getRandomData = async (limit = 10) => {
 
 export const getDatabyID = (id) => {
   return new Promise(async (resolve, reject) => {
-    const q = query(productosRef, where(documentId, "==", id));
+    const q = query(productosRef, where(documentId(), "==", id));
     const receta = await getDocs(q);
-    console.log("RECETA: ", receta);
+    receta.console.log("RECETA: ", receta);
   });
 };

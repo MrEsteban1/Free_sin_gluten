@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { getDatabyID } from "../../../services/firebase";
 import { getRecipeById } from "../../../services/spoonacularAPI";
 import ItemDetail from "./ItemDetail/ItemDetail";
 import "./style.css";
@@ -17,9 +18,9 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     setData({ data: {}, loading: true });
     getItem(idItem);
+    getDatabyID(idItem);
   }, []);
-  
-  console.log(data.data);
+
   return (
     <div className="item-container">
       {data.loading ? <h3>Loading...</h3> : <ItemDetail data={data.data} />}{" "}

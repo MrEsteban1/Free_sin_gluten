@@ -41,7 +41,6 @@ export const getRandomData = async (limit = 10) => {
 export const getRecipeById = (id) => {
   return new Promise((resolve, reject) => {
     let dataArray = JSON.parse(sessionStorage.getItem("recipes")) || [];
-    console.log("DATO PUTO", dataArray);
     let data = dataArray.filter((e) => e.id == id);
     resolve(data[0]);
   });
