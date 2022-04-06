@@ -1,4 +1,10 @@
-import { collection, getDocs, query } from "firebase/firestore";
+import {
+  collection,
+  documentId,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { db } from "../helpers/firebase-config";
 
 const productosRef = collection(db, "productos");
@@ -38,8 +44,10 @@ export const getRandomData = async (limit = 10) => {
   });
 };
 
-// export const getDatabyID = (id) => {
-//   return new Promise((resolve, reject)=> {
-
-//   }
-// };
+export const getDatabyID = (id) => {
+  return new Promise(async (resolve, reject) => {
+    const q = query(productosRef, where(documentId, "==", id));
+    const receta = await getDocs(q);
+    console.log("RECETA: ", receta);
+  });
+};
