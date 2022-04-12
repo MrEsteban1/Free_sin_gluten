@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChartContext } from "../../../../contexts/chartContext";
+import { useCart } from "../../../../contexts/chartContext";
 import { useCounter } from "../../../CustomHooks/useCounter";
 import Counter from "../../ItemListContainer/counter/counter";
 import "./style.css";
@@ -8,7 +8,7 @@ import "./style.css";
 const ItemDetail = ({ data }) => {
   const { id, nombre, calorias, imagen, precio } = data;
   const { counter, increment, decrement } = useCounter(0);
-  const [chart, setChart] = useContext(ChartContext);
+  const { cart, addItem } = useCart();
 
   const handlerAdd = async () => {
     const itemToCart = {
@@ -18,27 +18,29 @@ const ItemDetail = ({ data }) => {
       precio: precio * counter,
       cantidad: counter,
     };
-    let arrayAux;
-    let index = await chart.findIndex((product) => product.id === id);
-    console.log("index", index);
+    // let arrayAux;
+    // let index = await cart.findIndex((product) => product.id === id);
+    // console.log("index", index);
 
-    if (index === -1) arrayAux = [...chart, itemToCart];
-    else
-      arrayAux = await chart.map((product) =>
-        product.id === id
-          ? {
-              ...product,
-              price: product.precio + itemToCart.precio,
-              cantidad: product.cantidad + itemToCart.cantidad,
-            }
-          : { ...product }
-      );
+    // if (index === -1) arrayAux = [...cart, itemToCart];
+    // else
+    //   arrayAux = await cart.map((product) =>
+    //     product.id === id
+    //       ? {
+    //           ...product,
+    //           price: product.precio + itemToCart.precio,
+    //           cantidad: product.cantidad + itemToCart.cantidad,
+    //         }
+    //       : { ...product }
+    //   );
 
-    console.log("chart", arrayAux);
-    setChart([...arrayAux]);
+    // console.log("chart", arrayAux);
+    addItem(itemToCart);
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log("CHART ITEMS", cart);
+  }, [cart]);
 
   return (
     <div className="item_detail">

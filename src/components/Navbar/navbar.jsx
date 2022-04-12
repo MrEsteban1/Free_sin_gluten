@@ -1,19 +1,19 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ChartContext } from "../../contexts/chartContext";
+import { ChartContext, useCart } from "../../contexts/chartContext";
 import ChartWidget from "./ChartWidget/ChartWidget";
 
 import "./style.css";
 
 const Navbar = () => {
-  
-  const [chart, setChart] = useContext(ChartContext)
+  // const [chart, setChart] = useContext(ChartContext)
+  const { cart, addItem, deleteItem } = useCart();
 
-  const handleDeleteItem = (id) =>{
-    let items = chart.filter(e => e.id != id)
+  const handleDeleteItem = (id) => {
+    // let items = chart.filter(e => e.id != id)
 
-    setChart([...items])
-  }
+    deleteItem(id);
+  };
 
   return (
     <nav>
@@ -27,7 +27,7 @@ const Navbar = () => {
         <Link to={`/`}>
           <li className="nav-link">Productos</li>
         </Link>
-        <ChartWidget chart={chart} handleDeleteItem={handleDeleteItem}/>
+        <ChartWidget chart={cart} handleDeleteItem={handleDeleteItem} />
       </ul>
     </nav>
   );

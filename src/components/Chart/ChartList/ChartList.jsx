@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
-import { ChartContext } from "../../../contexts/chartContext";
+import { ChartContext, useCart } from "../../../contexts/chartContext";
 
 const ChartList = () => {
-  const [chart, setChart] = useContext(ChartContext);
+  const { cart, setChart, deleteItem } = useCart();
   const handleDeleteItem = (id) => {
-    let items = chart.filter((e) => e.id != id);
+    // let items = cart.filter((e) => e.id != id);
 
-    setChart([...items]);
+    deleteItem(id);
   };
   return (
     <>
       <ul className="chart-list">
-        {chart.map((product) => (
+        {cart.map((product) => (
           <li key={product.id}>
             <div className="chart-product-data">
               <img src={product.imagen} alt="" /> <span>{product.nombre}</span>

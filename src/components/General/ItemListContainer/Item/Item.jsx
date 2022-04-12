@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Counter from "../counter/counter";
 import "./style.css";
 
-const Item = ({ id, title, image, price }) => {
+const Item = ({ id, title, image, price, type }) => {
   const [selectedItems, setSelected] = useState(0);
 
   return (
@@ -12,10 +12,14 @@ const Item = ({ id, title, image, price }) => {
         {title.slice(0, 30)} {title.length > 20 ? "..." : ""}{" "}
       </h3>
       <img src={image} alt="" />
-      <span>
-        {" "}
-        <b>Precio:</b> ${price}
-      </span>
+      <ul>
+        <li>
+          <b>Precio:</b> ${price}
+        </li>
+        <li>
+          <b>Tipo:</b> {type}
+        </li>
+      </ul>
 
       {/* <Counter /> */}
       <Link to={`/recipe/${id}`}>

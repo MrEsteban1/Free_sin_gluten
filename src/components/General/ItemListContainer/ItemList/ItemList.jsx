@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { getRandomData } from "../../../../services/firebase";
+import { useParams } from "react-router-dom";
+import {
+  getDataByCategory,
+  getRandomData,
+} from "../../../../services/firebase";
 
 //import SearchBar from "../../SearchBar/SearchBar";
 import Item from "../Item/Item";
@@ -8,23 +12,27 @@ const ItemList = () => {
   //const [products, setProducts] = useState([]);
   const [recipes, setRecipe] = useState([]);
 
+  const { category } = useParams();
+  const resetProducts = () => setRecipe([]);
+
   useEffect(() => {
     const getDATA = async () => {
-      await getRandomData()
-        .then((data) => {
-          console.log(data);
-          setRecipe([...data]);
-        })
-        .catch((e) => console.error(e));
+      resetProducts();
+      category === "sin filtro"
+        ? await getRandomData()
+            .then((data) => {
+              console.log(data);
+              setRecipe([...data]);
+            })
+            .catch((e) => console.error(e))
+        : getDataByCategory(category).then((data) => {
+            console.log(data);
+            setRecipe([...data]);
+          });
     };
-
-    // getRandomData("pasta").then((res) => {
-    //   setRecipe([...res.recipes]);
-    // });
     getDATA();
-  }, []);
-
-  console.log(recipes);
+    console.log(category);
+  }, [category]);
 
   return (
     <div className="productList">
@@ -38,6 +46,7 @@ const ItemList = () => {
             title={product.nombre}
             image={product.imagen}
             price={product.precio}
+            type={product.tipo}
           />
         ))
       )}

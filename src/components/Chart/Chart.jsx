@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useCart } from "../../contexts/chartContext";
 import utils from "../../utils";
 import { handleBuy, handleEmptyChart } from "../../utils/chartFuncions";
 import ChartList from "./ChartList/ChartList";
 import "./style.css";
 
-const Chart = ({ products, setChart }) => {
+const Chart = () => {
   const [total, setTotal] = useState(0);
+  const { cart: products, setChart } = useCart();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,7 +25,10 @@ const Chart = ({ products, setChart }) => {
       <ChartList />
       <h3>Precio total: ${total} </h3>
       <div>
-        <button className="chart-comprarButton" onClick={()=>handleBuy(setChart)}>
+        <button
+          className="chart-comprarButton"
+          onClick={() => handleBuy(setChart)}
+        >
           Comprar
         </button>
         <button
