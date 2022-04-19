@@ -13,8 +13,8 @@ const productosRef = collection(db, "productos");
 class firebase {
   getData(limit = 10) {
     return new Promise(async (resolve, reject) => {
-      const q = query(productosRef, orderBy("name"), limit(limit));
-      const data = await getDocs(q)
+      const q = query(productosRef);
+      const data = await getDocs(productosRef)
         .then((data) => {
           return data.docs.map((doc) => {
             return {
@@ -45,6 +45,10 @@ class firebase {
       setTimeout(() => resolve(data), 1000);
     });
   }
+
+  addOrder(buyer) {
+    return new Promise((resolve, reject) => {});
+  }
 }
 
 const FirebaseClient = new firebase();
@@ -70,17 +74,17 @@ const FirebaseClient = new firebase();
 
 export const getRandomData = async (limit = 10) => {
   return new Promise((resolve, reject) => {
-    let storage = sessionStorage.getItem("recipes") || null;
-    if (!!storage) {
-      setTimeout(() => resolve(JSON.parse(storage)), 1000);
-    } else {
-      setTimeout(async () => {
-        let firebaseData = await FirebaseClient.getData(limit);
-        console.log("DATOS DE API: ", firebaseData);
-        sessionStorage.setItem("recipes", JSON.stringify(firebaseData));
-        resolve(firebaseData);
-      }, 2000);
-    }
+    // let storage = sessionStorage.getItem("recipes") || null;
+    // if (!!storage) {
+    //   setTimeout(() => resolve(JSON.parse(storage)), 1000);
+    // } else {
+    setTimeout(async () => {
+      let firebaseData = await FirebaseClient.getData(limit);
+      console.log("DATOS DE API: ", firebaseData);
+      // sessionStorage.setItem("recipes", JSON.stringify(firebaseData));
+      resolve(firebaseData);
+    }, 2000);
+    //}
   });
 };
 

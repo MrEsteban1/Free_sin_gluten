@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useCart } from "../../contexts/chartContext";
 import utils from "../../utils";
@@ -25,12 +25,13 @@ const Chart = () => {
       <ChartList />
       <h3>Precio total: ${total} </h3>
       <div>
-        <button
+        <Link
+          to={"/order"}
           className="chart-comprarButton"
-          onClick={() => handleBuy(setChart)}
+          //onClick={() => handleBuy(setChart)}
         >
           Comprar
-        </button>
+        </Link>
         <button
           className="chart-comprarBorrar"
           onClick={() => {

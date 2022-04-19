@@ -6,9 +6,11 @@ import ItemDetailContainer from "./components/General/ItemDetailContainer/itemDe
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CartProvider, ChartContext } from "./contexts/chartContext";
 import Chart from "./components/Chart/Chart";
+import { OrderCart } from "./components/Order/orderCart/orderCart";
+import { OrderContainer } from "./components/Order/orderContainer";
 
 function App() {
-  const [chart, setChart] = useState([]);
+  //const [chart, setChart] = useState([]);
 
   return (
     <div className="App">
@@ -22,6 +24,7 @@ function App() {
             <Route path="/products/:category" element={<ItemListContainer />} />
             <Route path="/recipe/:idItem" element={<ItemDetailContainer />} />
             <Route path="/chart" element={<Chart />} />
+            <Route path="/order" element={<OrderContainer />} />
           </Routes>
         </BrowserRouter>
         {/* </ChartContext.Provider> */}
