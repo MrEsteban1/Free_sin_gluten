@@ -1,10 +1,11 @@
 .chart-screen {
   margin-top: 20px;
   padding-top: 10px;
-  background-color: rgb(221, 159, 159);
+  background-color: rgba(99, 10, 16, 0.877);
   border-radius: 5px;
   width: 80%;
-  height: 80%;
+  height: 100%;
+  color: white;
 }
 .chart-list {
   display: flex;
@@ -19,11 +20,25 @@
   width: 90%;
   justify-content: space-between;
   align-items: center;
-  border-top: solid rgb(99, 52, 52) 1.5px;
+  border-top: solid rgb(129, 76, 76) 1.5px;
 }
 .chart-list li div {
   display: flex;
   align-items: center;
+}
+.chart-product-data{
+  display: flex;
+  flex-direction: column;
+}
+.chart-product-names{
+  justify-content: space-around;
+  display: flex;
+  width: 100%;
+  border: none;
+}
+.chart-product-names li{
+  
+  border: none;
 }
 .chart-product-buttonEliminar {
   border: none;
@@ -70,4 +85,10 @@
 .chart-comprarBorrar:hover {
   background-color: rgb(110, 63, 51);
   color: rgb(201, 195, 195);
+}
+
+@media only screen and (max-width:768px) {
+  .chart-screen{
+    width: 100%;
+  }
 }

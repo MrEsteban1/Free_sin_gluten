@@ -28,7 +28,6 @@ const Chart = () => {
         <Link
           to={"/order"}
           className="chart-comprarButton"
-          //onClick={() => handleBuy(setChart)}
         >
           Comprar
         </Link>

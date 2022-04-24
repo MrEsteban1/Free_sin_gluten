@@ -1,26 +1,60 @@
 .itemScreen {
-  background-color: rgb(238, 175, 175);
+  /* background-color: rgb(238, 175, 175); */
   height: 390px;
   width: 330px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: 20px;
   border-radius: 10px;
 }
 .itemScreen img {
   width: 50%;
-  height: 50%;
+  height: 30%;
   margin-bottom: 10px;
   border-radius: 10px;
+  /* border: solid rgb(250, 244, 244) 10px; */
+  padding: 5px;
+  background-color: rgba(36, 11, 11, 0.76);
+  margin-right: 20%;
+  z-index: 1;
 }
+
+.item-info{
+  background-color: rgb(99, 10, 16);
+  box-shadow: rgba(109, 34, 34, 0.459) 8px 10px ;
+  padding: 10px;
+  padding-top: 30px;
+  border-radius: 20px;
+  margin-top: -56px;
+  width: 90%;
+  color: rgb(238, 229, 229);
+}
+
+.item-info .number_items {
+  background-color: rgb(255, 255, 255);
+  width: 35%;
+  margin-top: 12px;
+  border-radius: 6px;
+}
+
+.item-list{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0px;
+}
+
 .button-counter {
-  margin: 13px 5px;
+  margin: 13px 0px 10px 2px;
   padding: 5px 25px;
-  background-color: brown;
+  background-color: rgb(99, 10, 16);
   border: none;
   border-radius: 3.5px;
   color: aliceblue;
+  width: 50%;
 }
 .button-counter:hover {
   background-color: rgb(124, 30, 30);
@@ -36,20 +70,34 @@
 .button-addItem{
     background-color: rgb(60, 54, 141);
 }
-.itemScreen .number_items {
-  background-color: rgb(255, 255, 255);
-  width: 35%;
-  margin-top: 12px;
-  border-radius: 6px;
-}
+
 .button-detalle {
-  background-color: rgb(93, 102, 189);
+  background-color: rgb(250, 206, 127);
   border: none;
   border-radius: 3.5px;
   padding: 5px 25px;
   margin: 12px;
-  color: rgb(255, 255, 255);
+  color: rgb(29, 28, 28);
 }
 .button-detalle:hover {
-  background-color: rgb(75, 84, 158);
+  background-color: rgb(189, 157, 97);
+}
+
+@media only screen and (max-width: 600px) {
+  .itemScreen {
+    /* background-color: rgb(238, 175, 175); */
+    width: 250px;
+    margin: 0px;
+  }
+  .item-info{
+   width: 80%;
+  }
+  
+  .item-info h3{
+    margin-top: 20px;
+    font-size: 15px;
+  }
+  .item-list li{
+    font-size: 12px;
+  }
 }

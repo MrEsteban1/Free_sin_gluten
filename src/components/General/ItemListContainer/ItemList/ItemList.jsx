@@ -21,17 +21,14 @@ const ItemList = () => {
       category === "sin filtro"
         ? await getRandomData()
             .then((data) => {
-              console.log(data);
               setRecipe([...data]);
             })
             .catch((e) => console.error(e))
         : getDataByCategory(category).then((data) => {
-            console.log(data);
             setRecipe([...data]);
           });
     };
     getDATA();
-    console.log(category);
   }, [category]);
 
   return (

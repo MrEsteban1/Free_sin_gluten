@@ -1,3 +1,4 @@
+import { async } from "@firebase/util";
 import { createContext, useContext, useState } from "react";
 
 export const ChartContext = createContext([]);
@@ -12,6 +13,8 @@ export const CartProvider = ({ children }) => {
     direccion: "",
     total: 0,
   });
+
+  const getBuyer = () => new Promise((resolve) =>{ resolve (buyer)}) ; 
 
   const addItem = async (item) => {
     let index = await cart.findIndex((product) => product.id === item.id);
@@ -40,7 +43,8 @@ export const CartProvider = ({ children }) => {
   };
 
   const addBuyer = (newBuyer) => {
-    setBuyer({ ...buyer, ...newBuyer });
+    console.log("valores: ", {...newBuyer,...buyer});
+    setBuyer({  ...buyer,...newBuyer });
   };
 
   const deleteBuyer = () => {
@@ -54,13 +58,17 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  const calculateTotal = (items) => {
-    items.reduce((a, b) => a + b, 0);
+  const calcularTotal = (items) => {
+    console.log("que cae??",items)
+    const total = items.reduce((a, b) => a + b.precio, 0);
+    console.log("que termina??",total )
+    setBuyer({...buyer, total: total, productos_id: items.map(e=> {return {id:e.id, cantidad: e.cantidad}})})
+   
   };
 
   return (
     <ChartContext.Provider
-      value={{ cart, addItem, addBuyer, emptyCart, deleteItem, deleteBuyer }}
+      value={{ cart, addItem, addBuyer, emptyCart, deleteItem, deleteBuyer, getBuyer, calcularTotal,buyer}}
     >
       {children}
     </ChartContext.Provider>

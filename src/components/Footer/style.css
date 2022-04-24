@@ -1,0 +1,25 @@
+#footer-screen{
+    align-items: center;
+    background-color: rgb(80, 35, 35);
+    display: flex;
+    justify-content: space-around;
+    height: 10vh;
+    width: 100%;
+}
+
+.footer-name{
+    color: rgb(250, 248, 248);
+    font-size:larger;
+    font-weight: bold;
+}
+
+.footer-nav{
+    display: flex;
+    list-style: none;
+}
+
+.footer-nav li{
+    color: rgb(180, 188, 196);
+    font-weight: bold;
+    margin-left: 20px;
+}

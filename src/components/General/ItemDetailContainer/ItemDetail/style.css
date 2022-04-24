@@ -1,5 +1,5 @@
 .item_detail {
-  background-color: rgb(235, 204, 196);
+  background-color: rgba(99, 10, 16, 0.616);
   padding: 50px;
   border-radius: 13px;
   width: 50%;
@@ -9,20 +9,36 @@
 .item-detail-image {
   width: 50%;
   height: 50%;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.555);
+  box-shadow: rgba(14, 13, 13, 0.466) 5px 10px 12px;
+  margin-bottom: 15px;
+  padding: 8px 15px;
 }
 .item-detail-backButton button {
   border: none;
   background-color: rgb(168, 53, 24);
-  width: 10%;
-  height: 4%;
+  width: 20%;
+  height: 42px;
   margin-top: -5px;
   border-radius: 3.5px;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  text-decoration: none;
+  /* position: absolute; */
 }
 .item-detail-backButton button:hover {
   background-color: rgb(126, 40, 18);
+}
+
+@media (max-width: 768px) {
+  .item_detail {
+    width: 70%;
+  }
+  .item-detail-backButton button{
+    position: relative;
+    width: 100px;
+  }
 }

@@ -6,7 +6,6 @@ const ChartWidget = ({ chart = [], handleDeleteItem }) => {
   const handleShowChart = () => {
     setShowChart(!showChart);
   };
-  console.log("CHART", chart);
 
   return (
     <li>
@@ -25,7 +24,7 @@ const ChartWidget = ({ chart = [], handleDeleteItem }) => {
       >
         {chart.length > 0 ? (
           chart.map((e, i) => {
-            console.log("coso", e);
+          
             return (
               <li key={e.id}>
                 <h5>

@@ -18,14 +18,14 @@ const Navbar = () => {
   return (
     <nav>
       <div className="brand">
-        <Link to={`/`}>
+        <Link className="brand-link" to={`/`}>
           <img src="assets/logo.jpg" alt="" />
           <span>Free Sin Gluten</span>
         </Link>
       </div>
       <ul>
-        <Link to={`/`}>
-          <li className="nav-link">Productos</li>
+        <Link className="nav-link"  to={`/products/sin%20filtro`}>
+          <li >Productos</li>
         </Link>
         <ChartWidget chart={cart} handleDeleteItem={handleDeleteItem} />
       </ul>

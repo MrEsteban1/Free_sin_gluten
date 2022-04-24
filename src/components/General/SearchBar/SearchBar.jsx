@@ -23,10 +23,10 @@ const SearchBar = () => {
             </option>
           ))}
         </select>
-        <button className="searchBar-button" type="submit">
+        {/* <button className="searchBar-button" type="submit">
           Buscar
         </button>
-        <input className="searchBar-input" type="text"></input>
+        <input className="searchBar-input" type="text"></input> */}
       </form>
     </div>
   );

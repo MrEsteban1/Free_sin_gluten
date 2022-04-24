@@ -1,4 +1,30 @@
 .warning-noItems {
-  color: red;
+  color: rgb(151, 44, 44);
   font-weight: bold;
 }
+
+.counter-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter-buttons{
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.number_items{
+  background-color: white;
+  border-radius: 5px;
+  width: 30%;
+}
+
+@media screen {
+  
+}
+
+
+

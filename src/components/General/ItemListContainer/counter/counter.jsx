@@ -17,9 +17,9 @@ const Counter = ({ counter, increment, decrement, handlerAdd }) => {
   };
 
   return (
-    <>
-      <div className="number_items">{counter}</div>
-      <div>
+    <div className="counter-screen">
+      <div className="number_items"> <span>{counter}</span></div>
+      <div className="counter-buttons">
         <button
           className="button-counter"
           onClick={() => {
@@ -43,7 +43,7 @@ const Counter = ({ counter, increment, decrement, handlerAdd }) => {
       {!addToChart && (
         <div className="warning-noItems">No hay productos que agregar.</div>
       )}
-    </>
+    </div>
   );
 };
 

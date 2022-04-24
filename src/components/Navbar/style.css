@@ -1,10 +1,11 @@
 nav {
-  background-color: rgb(199, 84, 84);
+  background-color: rgb(145, 31, 39);
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 110px;
   overflow: hidden;
+  margin: 0;
 }
 
 nav .brand {
@@ -21,9 +22,15 @@ nav .brand img {
   height: 85px;
 }
 
-nav .brand span {
+.brand-link{
+  text-decoration: none;
+}
+
+.brand-link span {
   font-size: large;
+  font-weight: bold;
   margin-left: 10px;
+  color: white;
 }
 
 nav ul {
@@ -110,4 +117,14 @@ nav ul img:hover {
   background-color: brown;
   color: white;
   padding: 5px 15px;
+}
+
+@media (max-width: 540px) {
+  .brand-link span{
+    background-color: aliceblue;
+    display: none;
+  }
+  nav {
+    justify-content: space-around;
+  }
 }

@@ -1,3 +1,4 @@
+import { async } from "@firebase/util";
 import {
   collection,
   documentId,
@@ -5,10 +6,13 @@ import {
   orderBy,
   query,
   where,
+  addDoc,
+  doc,
 } from "firebase/firestore";
 import { db } from "../helpers/firebase-config";
 
 const productosRef = collection(db, "productos");
+const ordenesRef = collection(db,"ordenes");
 
 class firebase {
   getData(limit = 10) {
@@ -26,7 +30,7 @@ class firebase {
         .catch((err) => {
           console.error(err);
         });
-      console.log("FIREBASE DATA: ", data);
+    
       resolve(data);
     });
   }
@@ -46,8 +50,11 @@ class firebase {
     });
   }
 
-  addOrder(buyer) {
-    return new Promise((resolve, reject) => {});
+   addOrder(buyer) {
+    return new Promise(async(resolve, reject) => {
+        const docRef = await addDoc(ordenesRef,{...buyer})
+        resolve(docRef.id)
+    });
   }
 }
 
@@ -80,7 +87,6 @@ export const getRandomData = async (limit = 10) => {
     // } else {
     setTimeout(async () => {
       let firebaseData = await FirebaseClient.getData(limit);
-      console.log("DATOS DE API: ", firebaseData);
       // sessionStorage.setItem("recipes", JSON.stringify(firebaseData));
       resolve(firebaseData);
     }, 2000);
@@ -103,10 +109,14 @@ export const getDatabyID = (id) => {
   return new Promise(async (resolve, reject) => {
     const q = query(productosRef, where(documentId(), "==", id));
     const receta = await getDocs(q);
-    console.log("RECETA: ", {
-      id: receta.docs[0].id,
-      ...receta.docs[0].data(),
-    });
     resolve({ id: receta.docs[0].id, ...receta.docs[0].data() });
   });
 };
+
+export const addOrder = async(buyer) => {
+  let id
+  await FirebaseClient.addOrder(buyer).then(res => id = res)
+  console.log("ID: ", id)
+
+  return id
+}

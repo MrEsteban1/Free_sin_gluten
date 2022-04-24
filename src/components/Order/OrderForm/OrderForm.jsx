@@ -1,17 +1,33 @@
 import { async } from "@firebase/util";
 import { Formik, Form, Field } from "formik";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { useCart } from "../../../contexts/chartContext";
+import { addOrder } from "../../../services/firebase";
 
 const OrderForm = () => {
+  const {} = useCart()
   const navigate = useNavigate();
-  const { addBuyer, deleteBuyer, emptyCart } = useCart();
+  const { addBuyer, deleteBuyer, emptyCart, getBuyer, buyer } = useCart();
   const hadleButtonCancelar = async () => {
     await deleteBuyer();
     await emptyCart();
-    navigate("/productos/postre");
+    navigate("/productos/sin%filtro");
   };
+
+  useEffect(()=>{ 
+    const subirData = async () =>  {
+      let id
+      if(buyer.nombre !== ""){
+        id = await addOrder( buyer )
+        Swal.fire("Muchas gracias por su compra, su codigo de compra es : " + id)
+        await hadleButtonCancelar()
+      } 
+    }
+      subirData(  )
+  },[buyer])
+
   return (
     <section id="order-form-section">
       <h3>Ingrese sus datos:</h3>
@@ -22,8 +38,11 @@ const OrderForm = () => {
           email: "",
           direccion: "",
         }}
-        onSubmit={async (values) => {
-          console.log("valores: ", values);
+        onSubmit={async(values) => {
+          addBuyer(values) 
+          //const id = await addOrder( await getBuyer() )
+         // Swal.fire("Muchas gracias por su compra, su codigo de compra es : " + id)
+          //hadleButtonCancelar()
         }}
       >
         <Form id="order-form">
@@ -48,6 +67,7 @@ const OrderForm = () => {
           />
           <label htmlFor="direccion">Direccion:</label>
           <Field
+            required
             class="order-field"
             name="direccion"
             placeholder="Ingrese su direccion..."
