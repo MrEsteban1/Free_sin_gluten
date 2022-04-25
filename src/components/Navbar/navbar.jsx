@@ -28,7 +28,7 @@ const Navbar = () => {
         <Link className="nav-link" to={`/products/sin%20filtro`}>
           <li>Productos</li>
         </Link>
-        <Link className="nav-link" to={`/seguir_order`}>
+        <Link className="nav-link" to={`/seguir_orden`}>
           <li>Seguir orden</li>
         </Link>
         <ChartWidget chart={cart} handleDeleteItem={handleDeleteItem} />

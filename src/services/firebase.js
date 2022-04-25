@@ -8,11 +8,12 @@ import {
   where,
   addDoc,
   doc,
+  getDoc,
 } from "firebase/firestore";
 import { db } from "../helpers/firebase-config";
 
 const productosRef = collection(db, "productos");
-const ordenesRef = collection(db,"ordenes");
+const ordenesRef = collection(db, "ordenes");
 
 class firebase {
   getData(limit = 10) {
@@ -30,7 +31,7 @@ class firebase {
         .catch((err) => {
           console.error(err);
         });
-    
+
       resolve(data);
     });
   }
@@ -50,34 +51,34 @@ class firebase {
     });
   }
 
-   addOrder(buyer) {
-    return new Promise(async(resolve, reject) => {
-        const docRef = await addDoc(ordenesRef,{...buyer})
-        resolve(docRef.id)
+  addOrder(buyer) {
+    return new Promise(async (resolve, reject) => {
+      const docRef = await addDoc(ordenesRef, { ...buyer });
+      resolve(docRef.id);
+    });
+  }
+
+  getOrderInfo(code) {
+    return new Promise(async (resolve) => {
+      const q = query(ordenesRef, where("id", "==", code));
+      // const data = await getDocs(q).then((res) => {
+      //   return res.docs.map((item) => {
+      //     return {
+      //       id: item.id,
+      //       ...item.data(),
+      //     };
+      //   });
+      // });
+      const docRef = doc(db, "ordenes", code);
+      const data = await getDoc(docRef);
+      console.log(code);
+      let respuesta = data.data();
+      setTimeout(() => resolve(data.data()), 1000);
     });
   }
 }
 
 const FirebaseClient = new firebase();
-
-// const getData = () => {
-//   return new Promise(async (resolve, reject) => {
-//     const data = await getDocs(productosRef)
-//       .then((data) => {
-//         return data.docs.map((doc) => {
-//           return {
-//             id: doc.id,
-//             ...doc.data(),
-//           };
-//         });
-//       })
-//       .catch((err) => {
-//         console.error(err);
-//       });
-//     console.log("FIREBASE DATA: ", data);
-//     resolve(data);
-//   });
-// };
 
 export const getRandomData = async (limit = 10) => {
   return new Promise((resolve, reject) => {
@@ -99,10 +100,6 @@ export const getDataByCategory = (category) => {
     const data = await FirebaseClient.getDataByCategory(category);
     resolve(data);
   });
-
-  // return new Promise((resolve) => {
-
-  // });
 };
 
 export const getDatabyID = (id) => {
@@ -113,10 +110,17 @@ export const getDatabyID = (id) => {
   });
 };
 
-export const addOrder = async(buyer) => {
-  let id
-  await FirebaseClient.addOrder(buyer).then(res => id = res)
-  console.log("ID: ", id)
+export const addOrder = async (buyer) => {
+  let id;
+  await FirebaseClient.addOrder(buyer).then((res) => (id = res));
+  console.log("ID: ", id);
 
-  return id
-}
+  return id;
+};
+
+export const getOrderInfo = (code) => {
+  return new Promise(async (resolve, reject) => {
+    const data = await FirebaseClient.getOrderInfo(code);
+    data !== undefined ? resolve(data) : reject();
+  });
+};

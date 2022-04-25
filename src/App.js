@@ -10,7 +10,7 @@ import { OrderCart } from "./components/Order/orderCart/orderCart";
 import { OrderContainer } from "./components/Order/orderContainer";
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
-import AsideMenu from "./components/Navbar/AsideMenu/AsideMenu";
+import OrderConsult from "./components/OrderConsult/OrderConsult";
 
 function App() {
   //const [chart, setChart] = useState([]);
@@ -32,7 +32,7 @@ function App() {
               <Route path="/recipe/:idItem" element={<ItemDetailContainer />} />
               <Route path="/chart" element={<Chart />} />
               <Route path="/order" element={<OrderContainer />} />
-              <Route path="/seguir_orden" element={<AsideMenu />} />
+              <Route path="/seguir_orden" element={<OrderConsult />} />
             </Routes>
           </section>
           <Footer />
