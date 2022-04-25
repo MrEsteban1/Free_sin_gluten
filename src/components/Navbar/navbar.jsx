@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ChartContext, useCart } from "../../contexts/chartContext";
+import AsideMenu from "./AsideMenu/AsideMenu";
 import ChartWidget from "./ChartWidget/ChartWidget";
 
 import "./style.css";
@@ -24,10 +25,14 @@ const Navbar = () => {
         </Link>
       </div>
       <ul>
-        <Link className="nav-link"  to={`/products/sin%20filtro`}>
-          <li >Productos</li>
+        <Link className="nav-link" to={`/products/sin%20filtro`}>
+          <li>Productos</li>
+        </Link>
+        <Link className="nav-link" to={`/seguir_order`}>
+          <li>Seguir orden</li>
         </Link>
         <ChartWidget chart={cart} handleDeleteItem={handleDeleteItem} />
+        <AsideMenu />
       </ul>
     </nav>
   );

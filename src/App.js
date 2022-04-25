@@ -8,8 +8,9 @@ import { CartProvider, ChartContext } from "./contexts/chartContext";
 import Chart from "./components/Chart/Chart";
 import { OrderCart } from "./components/Order/orderCart/orderCart";
 import { OrderContainer } from "./components/Order/orderContainer";
-import Home from "./components/Home/Home"
+import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
+import AsideMenu from "./components/Navbar/AsideMenu/AsideMenu";
 
 function App() {
   //const [chart, setChart] = useState([]);
@@ -24,13 +25,17 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<ItemListContainer />} />
-              <Route path="/products/:category" element={<ItemListContainer />} />
+              <Route
+                path="/products/:category"
+                element={<ItemListContainer />}
+              />
               <Route path="/recipe/:idItem" element={<ItemDetailContainer />} />
               <Route path="/chart" element={<Chart />} />
               <Route path="/order" element={<OrderContainer />} />
+              <Route path="/seguir_orden" element={<AsideMenu />} />
             </Routes>
           </section>
-          <Footer/>
+          <Footer />
         </BrowserRouter>
         {/* </ChartContext.Provider> */}
       </CartProvider>

@@ -22,7 +22,7 @@ nav .brand img {
   height: 85px;
 }
 
-.brand-link{
+.brand-link {
   text-decoration: none;
 }
 
@@ -52,13 +52,14 @@ nav ul img:hover {
 .nav-link {
   padding: 10px;
   margin-right: 10px;
-}
-.nav-link {
-  margin-right: 10px;
-}
-.nav-link {
   text-decoration: none;
+  color: white;
+  font-weight: bold;
 }
+.nav-link:hover {
+  color: rgb(219, 182, 182);
+}
+
 .nav-button-chart {
   border: none;
   background: none;
@@ -120,11 +121,14 @@ nav ul img:hover {
 }
 
 @media (max-width: 540px) {
-  .brand-link span{
+  .brand-link span {
     background-color: aliceblue;
     display: none;
   }
   nav {
     justify-content: space-around;
+  }
+  .nav-link {
+    display: none;
   }
 }

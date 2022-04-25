@@ -1,0 +1,46 @@
+.menu-buguer-nav {
+  border-radius: 0px;
+  display: none;
+}
+.menu-buguer-nav button {
+  background: none;
+  border: none;
+}
+.menu-ul {
+  align-items: center;
+  border-radius: 10px 0px 0px 10px;
+  display: flex;
+  flex-direction: column;
+
+  /* margin-top: 200px; */
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+  position: absolute;
+  right: 0px;
+  height: 100%;
+  padding-top: 28px;
+  width: 40%;
+  background-color: rgb(176, 53, 53);
+  z-index: 1;
+}
+
+.menu-title {
+  margin-bottom: 20px;
+}
+
+.menu-link {
+  font-weight: bold;
+  font-size: medium;
+  color: white;
+  text-decoration: none;
+}
+.menu-ul li {
+  margin-top: 10px;
+}
+
+@media (max-width: 540px) {
+  .menu-buguer-nav {
+    display: block;
+  }
+}

@@ -24,7 +24,6 @@ const ChartWidget = ({ chart = [], handleDeleteItem }) => {
       >
         {chart.length > 0 ? (
           chart.map((e, i) => {
-          
             return (
               <li key={e.id}>
                 <h5>
