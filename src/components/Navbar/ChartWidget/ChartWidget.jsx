@@ -10,7 +10,10 @@ const ChartWidget = ({ chart = [], handleDeleteItem }) => {
   return (
     <li>
       <button className="nav-button-chart" onClick={handleShowChart}>
-        <img src="assets/chart.png" alt="Logo de la imagen" />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXJ9fyRJO_fs3Ug1vko4MWEHxhrJ7ECk5Zug&usqp=CAU"
+          alt="Logo de la imagen"
+        />
         <div
           className="nav-item-counter"
           style={chart.length === 0 ? { display: "none" } : {}}

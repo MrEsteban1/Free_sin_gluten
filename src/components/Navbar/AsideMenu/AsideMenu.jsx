@@ -10,7 +10,10 @@ const AsideMenu = () => {
   return (
     <li className="menu-buguer-nav">
       <button onClick={handleShowChart}>
-        <img src="assets/burger_nav_2.png" alt="Logo de la imagen" />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa-9wkExBtleYaI_xQXoWYmoMPoqzEtHapPMDkoy21bI2QPqgnhm6ugPPPfdRnkAbmnyA&usqp=CAU"
+          alt="Logo de la imagen"
+        />
       </button>
       <ul
         className="menu-ul"
@@ -23,7 +26,7 @@ const AsideMenu = () => {
           </Link>
         </li>
         <li>
-          <Link className="menu-link" to={"/products/sin%20filtro"}>
+          <Link className="menu-link" to={"/seguir_orden"}>
             Seguir Order
           </Link>
         </li>

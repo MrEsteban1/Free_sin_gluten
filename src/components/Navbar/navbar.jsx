@@ -20,8 +20,11 @@ const Navbar = () => {
     <nav>
       <div className="brand">
         <Link className="brand-link" to={`/`}>
-          <img src="assets/logo.jpg" alt="" />
-          <span>Free Sin Gluten</span>
+          <img
+            src="https://jumboalacarta.com.ar/wp-content/uploads/2017/10/Logos-gluten.png"
+            alt=""
+          />
+          <span>Free Sin Gluten!</span>
         </Link>
       </div>
       <ul>
