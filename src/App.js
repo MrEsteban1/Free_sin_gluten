@@ -24,6 +24,7 @@ function App() {
           <section id="section-screen">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
               <Route path="/products" element={<ItemListContainer />} />
               <Route
                 path="/products/:category"
