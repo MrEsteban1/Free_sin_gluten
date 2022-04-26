@@ -4,7 +4,7 @@ _Proyecto de E-Commerce de menu de comidas sin Gluten, hecho con React JS para e
 
 ## Presentación
 
-<img src="https://github.com/ezequieleiannotti/monkeyminersreact/blob/master/Animation.gif">
+<img src="https://github.com/MrEsteban1/Free_sin_gluten/blob/master/Animation.gif">
 
 ## Primeros pasos
 
