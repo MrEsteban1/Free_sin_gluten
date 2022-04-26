@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar/navbar";
 import "./App.css";
 import ItemListContainer from "./components/General/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/General/ItemDetailContainer/itemDetailContainer";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { CartProvider, ChartContext } from "./contexts/chartContext";
 import Chart from "./components/Chart/Chart";
 import { OrderCart } from "./components/Order/orderCart/orderCart";
@@ -33,6 +33,7 @@ function App() {
               <Route path="/chart" element={<Chart />} />
               <Route path="/order" element={<OrderContainer />} />
               <Route path="/seguir_orden" element={<OrderConsult />} />
+              <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </section>
           <Footer />
