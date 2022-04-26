@@ -1,4 +1,5 @@
 {
+  "homepage": "https://mresteban1.github.io/Free_sin_gluten",
   "name": "free_sin_gluten",
   "version": "0.1.0",
   "private": true,
@@ -17,6 +18,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "prebuild": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
