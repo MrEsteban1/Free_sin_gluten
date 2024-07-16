@@ -4,7 +4,7 @@ const endPoints = {
   complexSearch: "https://api.spoonacular.com/recipes/complexSearch",
   randomRecipes: "https://api.spoonacular.com/recipes/random?",
 };
-const apiKey = "apiKey=f13099a5551c41cca7a2eb45a236e934";
+const apiKey = "";
 
 export const apiRandomData = async (limit = 10) => {
   let endPointString = endPoints.randomRecipes + `number=${limit}&` + apiKey;
